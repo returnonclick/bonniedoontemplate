@@ -1,0 +1,23 @@
+@font-face {
+    font-family:'Gotham Book';
+    src:url('../fonts/ufonts.com_gotham_book.eot?v=4.5.0');
+    src:url('../fonts/ufonts.com_gotham_book.eot?#iefix&v=4.5.0') format('embedded-opentype'),
+    url('../fonts/ufonts.com_gotham-book.woff?v=4.5.0') format('woff'),
+    url('../fonts/ufonts.com_gotham-book.ttf?v=4.5.0') format('truetype');
+    font-weight:normal;
+}
+
+@font-face {
+    font-family:'Gotham Medium';
+    src:url('../fonts/ufonts.com_gotham_medium.eot?v=4.5.0');
+    src:url('../fonts/ufonts.com_gotham_medium.eot?#iefix&v=4.5.0') format('embedded-opentype'),
+    url('../fonts/ufonts.com_gotham-medium.woff?v=4.5.0') format('woff'),
+    url('../fonts/ufonts.com_gotham-medium.ttf?v=4.5.0') format('truetype');
+    font-weight:normal;
+}
+
+@font-face {
+    font-family:'Trajan Pro';
+    src: url('../fonts/TrajanPro-Regular.ttf?v=4.5.0') format('truetype');
+    font-weight:normal;
+}

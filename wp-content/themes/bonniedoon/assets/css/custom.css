@@ -1,0 +1,185 @@
+/* -----------------------------------------------------
+
+Add here all your CSS customizations 
+
+Note: IE9 doesn't support transitions and animations
+
+-------------------------------------------------------*/
+
+@import 'css/font.css';
+
+
+html, body {
+    font-family: "Gotham Book";
+    font-size: 17px;
+}
+
+
+/* =================================
+
+            HEADER AREAinfo-box-info
+
+================================= */
+
+#cd-logo {
+    width: 145px;
+}
+
+#cd-logo img {
+    display: block;
+    max-height: 125px;
+}
+
+@media only screen and (max-width: 768px) {
+    #cd-logo{
+        width: 80px;
+    }
+    #cd-logo img {
+        max-height: 65px;
+    }
+}
+
+#cd-top-nav ul li a {
+    color: #fff;
+    font-size: 20px;
+}
+#cd-top-nav ul li a i{
+    padding-right: 5px;
+}
+
+#cd-menu-trigger {
+    right: 45px;
+}
+
+#cd-menu-trigger .cd-menu-icon {
+    width: 30px;
+    height: 4px;
+}
+
+#cd-menu-trigger .cd-menu-icon::before {
+    bottom: 10px;
+}
+
+#cd-menu-trigger .cd-menu-icon::after {
+    top: 10px
+}
+
+
+/* ================================
+
+           CUSTOMS
+
+================================= */
+
+
+.heading-xlg h1 span{
+    padding-left: 0px;
+}
+
+
+/* ================================
+
+           Scroll to top
+
+================================= */
+
+.scrolltotop {
+    padding-top: 15px;
+    color: rgba(7, 16, 54, 0.82);
+}
+
+.scrolltotop:hover {
+    color: rgba(7, 16, 54, 1);
+}
+
+
+/* ================================
+
+            WHAT WE DO
+
+================================= */
+
+.work .info-box{
+    margin: 20px 0;
+}
+
+.info-box-wrapper .fa {
+    padding-top: 22px;
+}
+
+.info-box-info {
+    padding: 0 20px 0 0;
+}
+
+.work .cover {
+    background-color: rgba(0, 80, 255, 0.6);
+}
+
+
+/* ================================
+
+            TOURNAMENTS
+
+================================= */
+
+.tournaments .col-inner {
+    border-right: 1px solid rgba(5, 16, 54, 0.85);
+}
+
+.tournaments .info-box-wrapper .fa {
+    padding-top: 20px;
+}
+
+.tournaments .info-box-info {
+    padding: 0 20px 0 0;
+}
+
+.tournaments .info-box-icon {
+    color: rgba(7, 16, 54, 0.82);
+    background-color: rgba(255, 255, 255, 0.16);
+    border-radius: 50%;
+    box-shadow: inset 0px 0px rgba(7, 16, 54, 0.82);;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.tournaments .info-box:hover .info-box-icon {
+    box-shadow: inset 0px -75px rgba(7, 16, 54, 0.82);
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.tournaments .info-box-heading h3 {
+    color: rgba(7, 16, 54, 0.82);
+}
+
+.tournaments .info-box-heading .divider {
+    background-color: rgba(7, 16, 54, 0.82);
+}
+
+@media (max-width: 768px) {
+    .info-box-heading h3 {font-size: 17px}
+
+    .heading-xlg h1 {
+        font-size: 20px;
+    }
+}
+@media (max-width: 992px) {
+    .info-box-heading h3 {font-size: 18px}
+
+    .heading-xlg h1 {
+        font-size: 30px;
+    }
+}
+@media (max-width: 1200px) {
+    .info-box-heading h3 {font-size: 19px}
+
+    .heading-xlg h1 {
+        font-size: 40px;
+    }
+}
+@media (max-width: 1440px) {
+    .info-box-heading h3 {font-size: 20px}
+
+    .heading-xlg h1 {
+        font-size: 50px;
+    }
+}
