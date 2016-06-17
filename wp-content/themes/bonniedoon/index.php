@@ -15,7 +15,7 @@
     <section id="section-intro" class="intro-parallax full-height">
 
         <!-- Element background image (parallax) -->
-        <div class="full-cover bg-image" data-stellar-ratio="0.2" style="background-image: url('/roc_theme/imgs/main-image.jpg')"></div>
+        <div class="full-cover bg-image" data-stellar-ratio="0.2" style="background-image: url('http://localhost:8888/2015/BonnieDoonTemplate/wp-content/uploads/2016/06/main-image.jpg')"></div>
 
         <!-- Element cover -->
         <div class="cover"></div>
