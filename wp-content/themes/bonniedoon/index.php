@@ -15,7 +15,7 @@
     <section id="section-intro" class="intro-parallax full-height">
 
         <!-- Element background image (parallax) -->
-        <div class="full-cover bg-image" data-stellar-ratio="0.2" style="background-image: url('http://localhost:8888/2015/BonnieDoonTemplate/wp-content/uploads/2016/06/main-image.jpg')"></div>
+        <div class="full-cover bg-image" data-stellar-ratio="0.2" style="background-image: url('http://54.152.228.144/wp-content/uploads/2016/06/main-image.jpg')"></div>
 
         <!-- Element cover -->
         <div class="cover"></div>
@@ -184,7 +184,7 @@
                 <div class="row-same-height">
 
                     <div class="col-left col-lg-6 col-lg-height no-padding">
-                        <img src="/roc_theme/imgs/who-we-are.png" alt="image" data-stellar-ratio="0.2">
+                        <img src="http://54.152.228.144/wp-content/uploads/2016/06/who-we-are.png" alt="image" data-stellar-ratio="0.2">
                     </div> <!-- /.col -->
 
                     <div class="col-right col-lg-6 col-lg-height col-middle no-padding">
@@ -249,7 +249,7 @@
     <section id="section-4" class="intro-parallax full-height">
 
         <!-- Element background image (parallax) -->
-        <div class="full-cover bg-image" data-stellar-ratio="0.2" style="background-image: url( 'http://localhost:8888/2015/BonnieDoonTemplate/wp-content/uploads/2016/06/home-3.jpg' );"></div>
+        <div class="full-cover bg-image" data-stellar-ratio="0.2" style="background-image: url( 'http://54.152.228.144/wp-content/uploads/2016/06/home-3.jpg' );"></div>
 
         <!-- Element cover -->
         <!-- <div class="cover"></div> -->

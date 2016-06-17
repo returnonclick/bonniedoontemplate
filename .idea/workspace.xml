@@ -48,14 +48,14 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/bonniedoon/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="180">
+              <caret line="186" column="97" selection-start-line="186" selection-start-column="97" selection-end-line="186" selection-end-column="97" />
               <folding>
-                <element signature="e#450#570#0#HTML" expanded="true" />
-                <element signature="e#1554#1610#0#HTML" expanded="true" />
-                <element signature="e#10418#10537#0#HTML" expanded="true" />
-                <element signature="e#10945#11458#0#PHP" expanded="true" />
-                <marker date="1466150435000" expanded="true" signature="10739:10861" ph="..." />
+                <element signature="e#450#546#0#HTML" expanded="true" />
+                <element signature="e#1530#1586#0#HTML" expanded="true" />
+                <element signature="e#10427#10522#0#HTML" expanded="true" />
+                <element signature="e#10930#11443#0#PHP" expanded="true" />
+                <marker date="1466151346000" expanded="true" signature="10724:10846" ph="..." />
               </folding>
             </state>
           </provider>
@@ -734,12 +734,12 @@
       <option name="presentableId" value="Default" />
       <updated>1466120602302</updated>
       <workItem from="1466120604393" duration="449000" />
-      <workItem from="1466121164850" duration="22508000" />
+      <workItem from="1466121164850" duration="23334000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22957000" />
+    <option name="totallyTimeSpent" value="23783000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="815" extended-state="6" />
@@ -907,14 +907,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/bonniedoon/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="186" column="97" selection-start-line="186" selection-start-column="97" selection-end-line="186" selection-end-column="97" />
           <folding>
-            <element signature="e#450#570#0#HTML" expanded="true" />
-            <element signature="e#1554#1610#0#HTML" expanded="true" />
-            <element signature="e#10418#10537#0#HTML" expanded="true" />
-            <element signature="e#10945#11458#0#PHP" expanded="true" />
-            <marker date="1466150435000" expanded="true" signature="10739:10861" ph="..." />
+            <element signature="e#450#546#0#HTML" expanded="true" />
+            <element signature="e#1530#1586#0#HTML" expanded="true" />
+            <element signature="e#10427#10522#0#HTML" expanded="true" />
+            <element signature="e#10930#11443#0#PHP" expanded="true" />
+            <marker date="1466151346000" expanded="true" signature="10724:10846" ph="..." />
           </folding>
         </state>
       </provider>
