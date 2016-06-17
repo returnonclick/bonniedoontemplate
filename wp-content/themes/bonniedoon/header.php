@@ -93,7 +93,7 @@
 <header class="is-fixed">
 
     <a id="cd-logo" href="index.html">
-        <img src="/images/roc_theme/bngc-logo.png" alt="image">
+        <img src="http://54.152.228.144/wp-content/uploads/2016/06/bngc-logo.png" alt="image">
     </a>
 
     <nav id="cd-top-nav">
