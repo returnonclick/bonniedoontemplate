@@ -91,10 +91,26 @@
 ////////////////////////////// -->
 
 <header class="is-fixed">
+    <?php
+    
+    // Display the Custom Logo
+    bonniedoon_the_custom_logo();
 
+    // No Custom Logo, just display the site's name
+    if (!has_custom_logo()) {
+        ?>
+        <h1><?php bloginfo('name'); ?></h1>
+        <?php
+    }
+
+
+    ?>
+
+    <!--
     <a id="cd-logo" href="index.html">
         <img src="http://54.152.228.144/wp-content/uploads/2016/06/bngc-logo.png" alt="image">
     </a>
+    -->
 
     <nav id="cd-top-nav">
         <ul>

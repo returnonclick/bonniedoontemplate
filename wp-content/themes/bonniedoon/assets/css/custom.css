@@ -21,6 +21,16 @@ html, body {
 
 ================================= */
 
+.custom-logo-link {
+    width: 145px;
+}
+
+.custom-logo-link img {
+    display: block;
+    max-height: 125px;
+}
+
+
 #cd-logo {
     width: 145px;
 }
@@ -31,10 +41,10 @@ html, body {
 }
 
 @media only screen and (max-width: 768px) {
-    #cd-logo{
+    #cd-logo, .custom-logo-link {{
         width: 80px;
     }
-    #cd-logo img {
+    #cd-logo img, .custom-logo-link img {
         max-height: 65px;
     }
 }

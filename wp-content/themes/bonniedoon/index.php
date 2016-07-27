@@ -11,11 +11,26 @@
 
 <div id="body-content">
 
+
+
+<?php
+
+    $page = get_page_by_path( 'home' );;
+
+    $pageId = get_page_link ( $page->ID );
+
+    if ( has_post_thumbnail ( $page->ID ) ) :
+
+        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $page->ID ), 'single-post-thumbnail' );
+
+?>
+
+
     <!-- Begin intro section (Parallax) -->
     <section id="section-intro" class="intro-parallax full-height">
 
-        <!-- Element background image (parallax) -->
-        <div class="full-cover bg-image" data-stellar-ratio="0.2" style="background-image: url('http://54.152.228.144/wp-content/uploads/2016/06/main-image.jpg')"></div>
+        <!-- Element background image (parallax) --> <!-- 'http://54.152.228.144/wp-content/uploads/2016/06/main-image.jpg' -->
+        <div class="full-cover bg-image" data-stellar-ratio="0.2" style="background-image: url(<?php echo $image[0] ?>)"></div>
 
         <!-- Element cover -->
         <div class="cover"></div>
@@ -31,15 +46,49 @@
     </section>
     <!-- End intro section (Parallax) -->
 
+<?php
+    endif;
+?>
+
 
 
     <?php
 
     $args = array(
-        'posts_per_page' => 5,
+        'posts_per_page' => 1,
         'post_type' => 'services',
         'post_status' => 'publish'
     );
+
+/*
+
+
+    $wpb_all_query = new WP_Query(
+        array( $args ) );
+
+
+
+    if ( $wpb_all_query->have_posts() ) :
+
+        while ( $wpb_all_query->have_posts() ) :
+
+            echo '<pre>';
+            print_r( the_title() );
+            echo '</pre>';
+
+        endwhile;
+
+
+        wp_reset_postdata();
+
+    endif;
+
+*/
+
+
+
+
+
     $post = get_posts( $args );
 
 
@@ -184,7 +233,8 @@
                 <div class="row-same-height">
 
                     <div class="col-left col-lg-6 col-lg-height no-padding">
-                        <img src="http://54.152.228.144/wp-content/uploads/2016/06/who-we-are.png" alt="image" data-stellar-ratio="0.2">
+                        <!-- http://54.152.228.144/wp-content/uploads/2016/06/who-we-are.png -->
+                        <img src="" alt="image" data-stellar-ratio="0.2">
                     </div> <!-- /.col -->
 
                     <div class="col-right col-lg-6 col-lg-height col-middle no-padding">
@@ -248,8 +298,8 @@
     <!-- Begin intro section (Parallax) -->
     <section id="section-4" class="intro-parallax full-height">
 
-        <!-- Element background image (parallax) -->
-        <div class="full-cover bg-image" data-stellar-ratio="0.2" style="background-image: url( 'http://54.152.228.144/wp-content/uploads/2016/06/home-3.jpg' );"></div>
+        <!-- Element background image (parallax) --> <!-- 'http://54.152.228.144/wp-content/uploads/2016/06/home-3.jpg' -->
+        <div class="full-cover bg-image" data-stellar-ratio="0.2" style="background-image: url();"></div>
 
         <!-- Element cover -->
         <!-- <div class="cover"></div> -->

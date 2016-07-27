@@ -4,13 +4,23 @@
 
     ROC_Meta_Tag_Post()->register_post_area_services();
 
-    if (class_exists('MultiPostThumbnails')) {
-        new MultiPostThumbnails(array(
-            'label' => 'Icon',
-            'id' => 'secondary-image',
-            'post_type' => 'services'
-        ) );
-    }
+
+
+    /*
+	 * Enable support for custom logo.
+	 *
+	 * @since Twenty Fifteen 1.5
+	 */
+    add_theme_support( 'custom-logo', array(
+        'height'      => 248,
+        'width'       => 248,
+        'flex-height' => true,
+    ) );
+
+
+
+
+
 
 
 /**
@@ -41,5 +51,13 @@ function booniedoon_widgets_init() {
 }
 
 add_action( 'widgets_init', 'booniedoon_widgets_init' );
+
+
+/**
+ * Custom template tags for this theme.
+ *
+ * @since Twenty Fifteen 1.0
+ */
+require get_template_directory() . '/inc/template-tags.php';
 
 
