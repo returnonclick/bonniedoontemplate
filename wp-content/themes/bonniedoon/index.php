@@ -54,62 +54,39 @@
 
     <?php
 
+    // Get first SERVICE to show bg picture (latest roc_featured_post)
     $args = array(
         'posts_per_page' => 1,
-        'post_type' => 'services',
-        'post_status' => 'publish'
+        'post_type'      => 'services',
+        'post_status'    => 'publish',
+        'orderby'        => 'date',
+        'order'          => 'DESC',
+        'meta_key'       => '_roc_featured_post',
+        'meta_value'     => 'checked' 
     );
+    $posts = get_posts( $args );
+    $post = $posts[0];
 
-/*
-
-
-    $wpb_all_query = new WP_Query(
-        array( $args ) );
-
-
-
-    if ( $wpb_all_query->have_posts() ) :
-
-        while ( $wpb_all_query->have_posts() ) :
-
-            echo '<pre>';
-            print_r( the_title() );
-            echo '</pre>';
-
-        endwhile;
-
-
-        wp_reset_postdata();
-
-    endif;
-
-*/
-
-
-
-
-
-    $post = get_posts( $args );
-
-
-
-    $checked = get_post_meta( $post[0]->ID, '_roc_featured_post', true );
-
-
-
-
-
-
-
-
-
-
-
-    if ( has_post_thumbnail($post[0]->ID) ) {
-        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post[0]->ID ), 'single-post-thumbnail' );
+    if ( has_post_thumbnail($post->ID) ) {
+        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
     }
 
-    $url = $post[0]->guid;
+    $url = $post->guid;
+
+
+
+    // Get other 4 SERVICEs 
+    $args = array(
+        'posts_per_page' => 4,
+        'post_type'      => 'services',
+        'post_status'    => 'publish',
+        'orderby'        => 'date',
+        'order'          => 'DESC',
+        'meta_key'       => '_roc_featured_post',
+        'meta_value'     => false ,
+    );
+    $services = get_posts( $args );
+
 
     ?>
 
@@ -133,11 +110,11 @@
 
                             <!-- Begin Heading -->
                             <div class="heading heading-xlg">
-                                <h1><span class="text-white"><?php echo $post[0]->post_title; ?></span></h1>
+                                <h1><span class="text-white"><?php echo $post->post_title; ?></span></h1>
                             </div>
                             <!-- End Heading -->
 
-                            <p class="lead"><?php echo $post[0]->post_excerpt; ?></p>
+                            <p class="lead"><?php echo $post->post_excerpt; ?></p>
 
                             <br>
                             <a href="<?php echo $url ?>" class="btn btn-transparent-white btn-lg">Read More</a>
@@ -151,9 +128,34 @@
                             <!-- Begin info box -->
                             <div class="info-box-wrapper">
                                 <div class="row">
+                                <?php
+                                    foreach ( $services as $service ){
+                                        $service_meta = get_post_meta( $service->ID , '' , true);
 
+                                        ?>
+                                        <div class="col col-sm-6 col-lg-6">
+                                            <a href="<?php echo $service->guid ?>" >
+                                                <div class="info-box">
+                                                    <span class="info-box-icon"><i class="fa <?php echo $service_meta['_roc_icon'][0] ?>"></i></span>
+                                                    <div class="info-box-heading">
+                                                        <h3><?php echo $service->post_title; ?></h3>
+                                                        <div class="divider"></div>
+                                                    </div>
+                                                    <div class="info-box-info">
+                                                        <p><?php echo $service->post_excerpt; ?></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        
+                                        <?php
+
+                                    }
+
+
+                                ?>
                                     <!-- info box 1 -->
-                                    <div class="col col-sm-6 col-lg-6">
+                                    <!-- <div class="col col-sm-6 col-lg-6">
                                         <div class="info-box">
                                             <span class="info-box-icon"><i class="fa fa-users"></i></span>
                                             <div class="info-box-heading">
@@ -164,10 +166,10 @@
                                                 <p>Bonnie Doon currently has reduced joining fees and annual subscriptions for prospective members under the age of 40.</p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <!-- info box 2 -->
-                                    <div class="col col-sm-6 col-lg-6">
+                                    <!-- <div class="col col-sm-6 col-lg-6">
                                         <div class="info-box">
                                             <span class="info-box-icon"><i class="fa fa-heart-o"></i></span>
                                             <div class="info-box-heading">
@@ -178,10 +180,10 @@
                                                 <p>We know that when you have your wedding at Bonnie Doon Golf Club it will be the perfect fit for you. </p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <!-- info box 3 -->
-                                    <div class="col col-sm-6 col-lg-6">
+                                    <!-- <div class="col col-sm-6 col-lg-6">
                                         <div class="info-box">
                                             <span class="info-box-icon"><i class="fa fa-flag-o"></i></span>
                                             <div class="info-box-heading">
@@ -192,10 +194,10 @@
                                                 <p>Corporate Memberships are available at Bonnie Doon Golf Club and includes the following benefits.</p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <!-- info box 4 -->
-                                    <div class="col col-sm-6 col-lg-6">
+                                    <!-- <div class="col col-sm-6 col-lg-6">
                                         <div class="info-box">
                                             <span class="info-box-icon"><i class="fa fa-mortar-board"></i></span>
                                             <div class="info-box-heading">
@@ -206,7 +208,7 @@
                                                 <p>Bonnie Doon mimics the work of nature, with a mixture of irregular undulations, wispy roughs and rugged bunker.</p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                 </div> <!-- /.row -->
                             </div>
