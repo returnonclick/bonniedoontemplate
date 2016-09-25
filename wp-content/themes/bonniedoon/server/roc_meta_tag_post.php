@@ -589,11 +589,9 @@ class ROC_Meta_Tag_Post
     {
 
         //==== Adding new post type for STATS Plugin
-        add_action( 'init',                  array( $this, 'register_post_area_services' ) );
+        add_action( 'init',                  array( $this, 'register_post_type'          ) );
         add_action( 'add_meta_boxes',        array( $this, 'add_meta_box'                ) );
         add_action( 'save_post',             array( $this, 'save'                        ) );
-        //add_action( 'add_meta_boxes',        array( $this, 'mytheme_add_box'             ) );
-        //add_action( 'save_post',             array( $this, 'mytheme_save_data'           ) );
         add_action( 'wp_enqueue_scripts',    array( $this, 'fontawesome_style'           ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'fontawesome_style'           ) );
 
@@ -619,7 +617,7 @@ class ROC_Meta_Tag_Post
 
     }
 
-    function register_post_area_services()
+    function register_post_type()
     {
 
         $args = array(
@@ -635,7 +633,23 @@ class ROC_Meta_Tag_Post
         add_theme_support( 'post-thumbnails' );
 
         register_post_type('services', $args);
+
+        $args = array(
+            'public' => true,
+            'label' => 'Testimonials',
+            'rewrite' => array('slug' => 'testimonials'),
+            'capability_type' => 'post',
+            'featured_image' => true,
+            'enabled_sticky_posts' => true,
+            'supports' => array('title', 'editor', 'thumbnail', 'excerpt')
+        );
+
+        add_theme_support( 'post-thumbnails' );
+
+        register_post_type('testimonials', $args);
+
     }
+
 
     public function get_post_type()
     {

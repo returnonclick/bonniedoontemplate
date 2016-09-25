@@ -44,7 +44,7 @@
 	-webkit-transform: translateY(-50%);
 	transform: translateY(-50%);
 }
-.horisontal-align-center {
+.horizontal-align-center {
 	position: absolute;
 	left: 50%;
 	-moz-transform: translateX(-50%);

@@ -1,10 +1,5 @@
 <?php get_header(); ?>
 
-<?php
-    include ('menu.php');
-?>
-
-
 <!-- ///////////////////////////////////
     ////////// Begin body content //////////
     //////////////////////////////////// -->
@@ -15,7 +10,7 @@
 
 <?php
 
-    $page = get_page_by_path( 'home' );;
+    $page = get_page_by_path( 'home' );
 
     $pageId = get_page_link ( $page->ID );
 
@@ -29,7 +24,7 @@
     <!-- Begin intro section (Parallax) -->
     <section id="section-intro" class="intro-parallax full-height">
 
-        <!-- Element background image (parallax) --> <!-- 'http://54.152.228.144/wp-content/uploads/2016/06/main-image.jpg' -->
+        <!-- Element background image (parallax) -->
         <div class="full-cover bg-image" data-stellar-ratio="0.2" style="background-image: url(<?php echo $image[0] ?>)"></div>
 
         <!-- Element cover -->
@@ -37,7 +32,7 @@
 
         <!-- Intro caption -->
         <div class="intro-caption text-white" data-stellar-ratio="0.6">
-
+            <?php echo the_content(); ?>
         </div>
 
         <!-- Scroll down arrow -->
@@ -67,6 +62,7 @@
     $posts = get_posts( $args );
     $post = $posts[0];
 
+<<<<<<< Updated upstream
     if ( has_post_thumbnail($post->ID) ) {
         $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
     }
@@ -86,6 +82,15 @@
         'meta_value'     => false ,
     );
     $services = get_posts( $args );
+=======
+    $post = get_posts( $args );
+
+    $checked = get_post_meta( $post[0]->ID, '_roc_featured_post', true );
+
+    if ( has_post_thumbnail($post[0]->ID) ) {
+        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post[0]->ID ), 'single-post-thumbnail' );
+    }
+>>>>>>> Stashed changes
 
 
     ?>
@@ -261,9 +266,32 @@
         </div> <!-- /.container -->
     </section>
 
-    <!-- Section 1 -->
 
-    <section id="section-1" class="welcome bg-dark text-white">
+
+
+
+<?php
+
+$args = array(
+    'posts_per_page' => 1,
+    'post_type' => 'testimonials',
+    'post_status' => 'publish'
+);
+
+$post = get_posts( $args );
+
+if ( has_post_thumbnail($post[0]->ID) ) {
+    $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post[0]->ID ), 'single-post-thumbnail' );
+}
+
+$url = $post[0]->guid;
+
+?>
+
+
+
+
+    <section id="section-3" class="welcome bg-dark text-white">
         <div class="container-fluid">
             <div class="row">
 
@@ -283,7 +311,7 @@
                     <div class="col-inner">
 
                         <p class="lead">
-                            Lorem Ipsum Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum
+                            <?php echo $post[0]->post_excerpt; ?>
                         </p>
 
                     </div>

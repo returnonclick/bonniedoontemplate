@@ -16,10 +16,11 @@ Note: IE9 doesn't support transitions and animations
 /* ------------------------------------ */
 
 header {
+	background-color: rgba(255, 255, 255, 1);
 	position: absolute;
 	top: 0;
 	left: 0;
-	height: 90px;
+	height: 105px;
 	width: 100%;
 	z-index: 9999;
 	/* Force Hardware Acceleration in WebKit */
@@ -54,20 +55,22 @@ header.is-fixed {
  *  Header logo
 /* ------------------------------------ */
 
-#cd-logo {
+.custom-logo-link {
 	display: block;
 	float: left;
 	background-color: #FFF;
-	margin: 14px 0 0 14px;
+	margin: 15px 0 0 15px;
 	padding: 0 15px 15px 0px;
 }
-#cd-logo img {
+.custom-logo-link img {
 	display: block;
-	max-height: 54px;
+	max-height: 75px;
+	max-width: 75px;
 }
 @media only screen and (max-width: 768px) {
-	#cd-logo img {
-		max-height: 45px;
+	.custom-logo-link img {
+		max-height: 150px;
+		max-width: 150px;
 	}
 }
 
@@ -79,7 +82,7 @@ header.is-fixed {
 #cd-top-nav {
 	position: absolute;
 	top: 0;
-	right: 120px;
+	right: 6px;
 	height: 100%;
 	display: none;
 }

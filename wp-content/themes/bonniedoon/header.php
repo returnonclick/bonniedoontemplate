@@ -106,11 +106,7 @@
 
     ?>
 
-    <!--
-    <a id="cd-logo" href="index.html">
-        <img src="http://54.152.228.144/wp-content/uploads/2016/06/bngc-logo.png" alt="image">
-    </a>
-    -->
+    <?php include ('menu.php'); ?>
 
     <nav id="cd-top-nav">
         <ul>
@@ -119,59 +115,9 @@
         </ul>
     </nav>
 
-    <a id="cd-menu-trigger" href="#0"><span class="cd-menu-icon"></span></a>
-
-    <!--
-    <div id="member-phone-row" class="row">
-
-        <?php //if ( is_user_logged_in() ) { ?>
-
-            <a href="/members/" class="members-login"><i class="fa fa-user-times"></i>Member Logout</a>
-
-        <?php //} else { ?>
-
-            <a href="/members/" class="members-login"><i class="fa fa-user"></i>Member Login</a>
-
-        <?php //} ?>
-
-        <a href="#0" class="phone"><i class="fa fa-phone"></i>02 9349 0121</a>
-
-    </div>
-    -->
 
 </header>
 
 <!-- /////////////////////////////
 ////////// End header //////////
 ////////////////////////////// -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php //if (in_category( array('guest-news' ))){ ?>
-
-<?php //include ('header-main.php'); ?>
-
-<?php //} elseif ( !is_user_logged_in() && in_category( array('members-news','board-communications','general-info','golf-operation','major-events' ))  ) {
- ?>
-
-<?php //header('Location: /security/logout.action.xsp');
-      //die();
-	  ?>
-
-<?php //} else { ?>
-
-<?php //include ('header-main.php'); ?>
-
-<?php //} ?>

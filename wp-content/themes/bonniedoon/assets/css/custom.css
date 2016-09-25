@@ -17,61 +17,52 @@ html, body {
 
 /* =================================
 
-            HEADER AREAinfo-box-info
+            HEADER AREA
 
 ================================= */
 
-.custom-logo-link {
-    width: 145px;
-}
-
-.custom-logo-link img {
-    display: block;
-    max-height: 125px;
-}
-
-
-#cd-logo {
-    width: 145px;
-}
-
-#cd-logo img {
-    display: block;
-    max-height: 125px;
-}
-
-@media only screen and (max-width: 768px) {
-    #cd-logo, .custom-logo-link {{
-        width: 80px;
-    }
-    #cd-logo img, .custom-logo-link img {
-        max-height: 65px;
-    }
-}
-
 #cd-top-nav ul li a {
-    color: #fff;
     font-size: 20px;
 }
 #cd-top-nav ul li a i{
     padding-right: 5px;
 }
 
-#cd-menu-trigger {
-    right: 45px;
+
+/* ================================
+
+           CUSTOM MENU
+
+================================= */
+
+ul.nav-menu {
+    background-color: rgba(255, 255, 255, 1);
+    top:30px;
+    padding: 5px 15px;
 }
 
-#cd-menu-trigger .cd-menu-icon {
-    width: 30px;
-    height: 4px;
+ul.nav-menu {
+    margin: 0;
 }
 
-#cd-menu-trigger .cd-menu-icon::before {
-    bottom: 10px;
+ul.nav-menu  li {
+    display: inline-block;
+    padding: 0 15px;
 }
 
-#cd-menu-trigger .cd-menu-icon::after {
-    top: 10px
+ul.nav-menu li:first-child {
+    padding: 0 15px 0 0;
+}
+
+ul.nav-menu li:last-child {
+    padding: 0 0 0 15px;
+}
+
+ul.nav-menu li a {
+    color: rgba(7, 16, 54, 0.8);
+    font-size: 16px;
+    font-weight: bolder;
+    text-transform: uppercase;
 }
 
 

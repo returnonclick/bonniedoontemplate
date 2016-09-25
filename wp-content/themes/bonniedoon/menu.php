@@ -1,15 +1,15 @@
 <!-- //////////////////////////////////////////////////////////////////////////////////////////////////
 ////////// Begin menu  (more info: http://codyhouse.co/gem/secondary-expandable-navigation/) //////////
-/////////////////////////////////////////////////////////////////////////////////////////////////// -->
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 <nav id="cd-lateral-nav">
 
     <div class="nav-inner">
 
-        <!-- menu header -->
+        <!-- menu header
         <div class="menu-header">Menu</div>
 
-        <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
+        <?php  //wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
 
         <?php  //include ('menu.php'); ?>
 
@@ -85,7 +85,7 @@
         </ul>
         <!-- End links with sub menu -->
 
-        <!-- Socials icons (replace "http://link.com" widh your own link) -->
+        <!-- Socials icons (replace "http://link.com" widh your own link)
         <div class="social-icons">
             <a href="https://www.facebook.com/themetorium" target="_blank"><i class="fa fa-facebook-square"></i></a>
             <a href="https://twitter.com/Themetorium" target="_blank"><i class="fa fa-twitter-square"></i></a>
@@ -102,26 +102,4 @@
 ////////////////////////// -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php //if ( is_user_logged_in() ) { ?>
-
-<?php //include ('menu-member.php'); ?>
-
-<?php //} else { ?>
-
-<?php //include ('menu-guest.php'); ?>
-
-
-<?php //} ?>
+<?php  wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu horizontal-align-center' ) ); ?>
