@@ -14,6 +14,10 @@ html, body {
     font-size: 17px;
 }
 
+a:hover {
+    text-underline: none;
+}
+
 
 /* =================================
 
@@ -59,7 +63,7 @@ ul.nav-menu li:last-child {
 }
 
 ul.nav-menu li a {
-    color: rgba(7, 16, 54, 0.8);
+    color: rgba(6, 17, 54, 0.8);
     font-size: 16px;
     font-weight: bolder;
     text-transform: uppercase;
@@ -86,11 +90,11 @@ ul.nav-menu li a {
 
 .scrolltotop {
     padding-top: 15px;
-    color: rgba(7, 16, 54, 0.82);
+    color: rgba(6, 17, 54, 0.82);
 }
 
 .scrolltotop:hover {
-    color: rgba(7, 16, 54, 1);
+    color: rgba(6, 17, 54, 1);
 }
 
 
@@ -104,6 +108,14 @@ ul.nav-menu li a {
     margin: 20px 0;
 }
 
+.work a {
+    color: rgba(255, 255, 255, 1);
+}
+
+.work a:hover {
+    text-decoration: none;
+}
+
 .info-box-wrapper .fa {
     padding-top: 22px;
 }
@@ -113,7 +125,7 @@ ul.nav-menu li a {
 }
 
 .work .cover {
-    background-color: rgba(0, 80, 255, 0.6);
+    background-color: rgba(38, 92, 255, 0.6);
 }
 
 
@@ -124,7 +136,7 @@ ul.nav-menu li a {
 ================================= */
 
 .tournaments .col-inner {
-    border-right: 1px solid rgba(5, 16, 54, 0.85);
+    border-right: 1px solid rgba(6, 17, 54, 0.85);
 }
 
 .tournaments .info-box-wrapper .fa {
@@ -136,24 +148,24 @@ ul.nav-menu li a {
 }
 
 .tournaments .info-box-icon {
-    color: rgba(7, 16, 54, 0.82);
+    color: rgba(6, 17, 54, 0.82);
     background-color: rgba(255, 255, 255, 0.16);
     border-radius: 50%;
-    box-shadow: inset 0px 0px rgba(7, 16, 54, 0.82);;
+    box-shadow: inset 0px 0px rgba(6, 17, 54, 0.82);;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
 }
 .tournaments .info-box:hover .info-box-icon {
-    box-shadow: inset 0px -75px rgba(7, 16, 54, 0.82);
+    box-shadow: inset 0px -75px rgba(6, 17, 54, 0.82);
     color: rgba(255, 255, 255, 0.82);
 }
 
 .tournaments .info-box-heading h3 {
-    color: rgba(7, 16, 54, 0.82);
+    color: rgba(6, 17, 54, 0.82);
 }
 
 .tournaments .info-box-heading .divider {
-    background-color: rgba(7, 16, 54, 0.82);
+    background-color: rgba(6, 17, 54, 0.82);
 }
 
 @media (max-width: 768px) {

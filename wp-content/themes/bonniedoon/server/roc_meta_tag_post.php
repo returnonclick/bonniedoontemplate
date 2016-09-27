@@ -22,7 +22,7 @@ class ROC_Meta_Tag_Post
     private static $instance;
 
 
-    private $post_type = array ( 'services' );
+    private $post_type = array ( 'services', 'tournaments' );
 
     private $prefix = '_roc_';
 
@@ -595,14 +595,12 @@ class ROC_Meta_Tag_Post
         add_action( 'wp_enqueue_scripts',    array( $this, 'fontawesome_style'           ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'fontawesome_style'           ) );
 
-
+        //featured field
         $this -> field_icon_metabox = array (
-
             'name' => 'Icon',
             'id' => $this -> prefix . 'icon',
             'type' => 'radio',
             'options' => $this -> field_options_metabox
-
         );
 
         //set up the box and teh fields inside
@@ -647,6 +645,20 @@ class ROC_Meta_Tag_Post
         add_theme_support( 'post-thumbnails' );
 
         register_post_type('testimonials', $args);
+
+        $args = array(
+            'public' => true,
+            'label' => 'Tournaments',
+            'rewrite' => array('slug' => 'tournaments'),
+            'capability_type' => 'post',
+            'featured_image' => true,
+            'enabled_sticky_posts' => true,
+            'supports' => array('title', 'editor', 'thumbnail', 'excerpt')
+        );
+
+        add_theme_support( 'post-thumbnails' );
+
+        register_post_type('tournaments', $args);
 
     }
 
@@ -741,47 +753,41 @@ class ROC_Meta_Tag_Post
 
 
 
-        // verify nonce
-        if (!wp_verify_nonce($_POST['mytheme_meta_box_nonce'], basename(__FILE__))) {
+
+        // Check if our nonce is set.
+        if ( ! isset( $_POST['mytheme_meta_box_nonce'] ) ) {
             return $post_id;
         }
-        // check autosave
-        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+
+        $nonce = $_POST['mytheme_meta_box_nonce'];
+
+        // Verify that the nonce is valid.
+        if ( ! wp_verify_nonce( $nonce, 'mytheme_meta_box' ) ) {
             return $post_id;
         }
-        // check permissions
-        if ('page' == $_POST['post_type']) {
-            if (!current_user_can('edit_page', $post_id)) {
+
+        /*
+         * If this is an autosave, our form has not been submitted,
+         * so we don't want to do anything.
+         */
+        if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+            return $post_id;
+        }
+
+        // Check the user's permissions.
+        if ( 'page' == $_POST['post_type'] ) {
+            if ( ! current_user_can( 'edit_page', $post_id ) ) {
                 return $post_id;
             }
-        } elseif (!current_user_can('edit_post', $post_id)) {
-            return $post_id;
-        }
-
-
-        echo '<pre>';
-        print_r($_POST);
-        echo '</pre>';
-
-
-
-        if (is_array($this->meta_box['fields']) || is_object($this->meta_box['fields'])) {
-            foreach ($this->meta_box['fields'] as $field) {
-
-                $old = get_post_meta($post_id, $field['id'], true);
-                $new = $_POST[$field['id']];
-
-                if ($new && $new != $old) {
-                    update_post_meta($post_id, $field['id'], $new);
-                } elseif ('' == $new && $old) {
-                    delete_post_meta($post_id, $field['id'], $old);
-                }
-
+        } else {
+            if ( ! current_user_can( 'edit_post', $post_id ) ) {
+                return $post_id;
             }
         }
 
-
-
+        // Update the meta field.
+        $value = substr($_POST['_roc_icon'], 0, -1);
+        update_post_meta( $post_id, '_roc_icon', $value );
 
     }
 
@@ -814,22 +820,32 @@ class ROC_Meta_Tag_Post
     function fontawesome_meta_box() {
         global $post;
 
+        // Add an nonce field so we can check for it later.
+        wp_nonce_field( 'mytheme_meta_box', 'mytheme_meta_box_nonce' );
+
+        // Use get_post_meta to retrieve an existing value from the database.
+        //$value = get_post_meta( $post->ID, '_roc_icon', true );
+
+
+
         // Use nonce for verification
-        echo '<input type="hidden" name="mytheme_meta_box_nonce" value="', wp_create_nonce(basename(__FILE__)), '" />';
+        //echo '<input type="hidden" name="mytheme_meta_box_nonce" value="', wp_create_nonce(basename(__FILE__)), '" />';
 
         echo '<table class="form-table">';
         foreach ($this->meta_box['fields'] as $field) {
             // get current post meta data
-            $meta = get_post_meta($post->ID, $field['id'], true);
+            $meta = get_post_meta($post->ID, '_roc_icon');
 
-            echo '<div style="display: inline-block; width: 100%"><i class="fa fa-2x '.$meta.'"></i></div>';
+            //echo '<div style="display: inline-block; width: 100%"><i class="fa fa-2x '.$meta.'"></i></div>';
 
             switch ($field['type']) {
                 case 'radio':
                     foreach ($field['options'] as $value => $name) {
-
-                        echo '<div style="display: inline-block; width: 70px"><input type="radio" name="'. $field['id'] .'"';
-                        echo $meta == $value ? 'checked="checked"' : '';
+                        echo '<div style="display: inline-block; width: 70px"><input type="radio" name="_roc_icon"';
+                        if($meta):
+                        echo strcmp($meta[0], $value) === 0 ? 'checked="checked"' : '';
+                        endif;
+                        echo 'value='.$value;
                         echo '/><i class="fa fa-2x ';
                         echo $value;
                         echo '"></i></div>';

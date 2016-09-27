@@ -4,7 +4,7 @@
     ////////// Begin body content //////////
     //////////////////////////////////// -->
 
-<div id="body-content">
+<div id="body-content" xmlns="http://www.w3.org/1999/html">
 
 
 
@@ -12,11 +12,17 @@
 
     $page = get_page_by_path( 'home' );
 
-    $pageId = get_page_link ( $page->ID );
+    if ($page) {
+        $pageId = $page->ID;
+    } else {
+        return null;
+    }
 
-    if ( has_post_thumbnail ( $page->ID ) ) :
+    if ( has_post_thumbnail ( $pageId ) ){
+        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $pageId ), 'single-post-thumbnail' );
+    }
 
-        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $page->ID ), 'single-post-thumbnail' );
+
 
 ?>
 
@@ -32,19 +38,108 @@
 
         <!-- Intro caption -->
         <div class="intro-caption text-white" data-stellar-ratio="0.6">
-            <?php echo the_content(); ?>
+            <h1><span><?php echo $page->post_content ?></span></h1>
         </div>
 
         <!-- Scroll down arrow -->
-        <a class="scroll-down-arrow page-scroll text-center" href="#section-3"><span class="text-white"><i class="fa fa-arrow-down"></i></span></a>
+        <a class="scroll-down-arrow page-scroll text-center" href="#section-1"><span class="text-white"><i class="fa fa-arrow-down"></i></span></a>
 
     </section>
     <!-- End intro section (Parallax) -->
 
 <?php
-    endif;
+
+    $page = get_page_by_path( 'welcome' );
+
+    if ($page) {
+        $pageId = $page->ID;
+    } else {
+        return null;
+    }
+
 ?>
 
+    <!-- Section 1 -->
+    <section id="section-1" class="welcome bg-dark text-white">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-left col-md-6">
+                    <div class="col-inner">
+
+                        <!-- Begin Heading -->
+                        <div class="heading heading-xlg">
+                            <h1><span><?php echo $page->post_title ?></span></h1>
+                        </div>
+                        <!-- End Heading -->
+
+                    </div> <!-- /.col-inner -->
+                </div> <!-- /.col -->
+
+                <div class="col-right col-md-6">
+                    <div class="col-inner">
+
+                        <p class="lead">
+                            <?php echo $page->post_content ?>
+                        </p>
+
+                    </div>
+                </div> <!-- /.col -->
+
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </section>
+
+
+<?php
+
+    $page = get_page_by_path( 'bonnie-doon' );
+
+    if ($page) {
+        $pageId = $page->ID;
+    } else {
+        return null;
+    }
+
+    if ( has_post_thumbnail ( $pageId ) ){
+        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $pageId ), 'single-post-thumbnail' );
+    }
+
+?>
+
+    <!-- Section 2 -->
+    <section id="section-2" class="team split-box no-padding">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- Begin responsive columns of same height (more info: http://www.minimit.com/articles/solutions-tutorials/bootstrap-3-responsive-columns-of-same-height) -->
+                <div class="row-same-height">
+
+                    <div class="col-left col-lg-6 col-lg-height no-padding">
+                        <!-- http://54.152.228.144/wp-content/uploads/2016/06/who-we-are.png -->
+                        <img src="<?php echo $image[0] ?>" alt="image" data-stellar-ratio="0.2">
+                    </div> <!-- /.col -->
+
+                    <div class="col-right col-lg-6 col-lg-height col-middle no-padding">
+                        <div class="col-inner">
+
+                            <!-- Begin Heading -->
+                            <div class="heading heading-xlg">
+                                <h1><span class="text-dark"><?php echo $page->post_title ?></span></h1>
+                            </div>
+                            <!-- End Heading -->
+
+                            <p class="lead"><?php echo $page->post_content ?></p>
+                            <br>
+                            <a href="<?php echo $page->guid ?>" class="btn btn-danger btn-rounded btn-lg">Read More</a>
+                        </div> <!-- /.col-inner -->
+                    </div> <!-- /.col -->
+                </div>
+                <!-- End responsive columns of same height -->
+
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </section>
 
 
     <?php
@@ -62,16 +157,13 @@
     $posts = get_posts( $args );
     $post = $posts[0];
 
-<<<<<<< Updated upstream
     if ( has_post_thumbnail($post->ID) ) {
         $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
     }
 
     $url = $post->guid;
 
-
-
-    // Get other 4 SERVICEs 
+    // Get 4 services
     $args = array(
         'posts_per_page' => 4,
         'post_type'      => 'services',
@@ -82,16 +174,6 @@
         'meta_value'     => false ,
     );
     $services = get_posts( $args );
-=======
-    $post = get_posts( $args );
-
-    $checked = get_post_meta( $post[0]->ID, '_roc_featured_post', true );
-
-    if ( has_post_thumbnail($post[0]->ID) ) {
-        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post[0]->ID ), 'single-post-thumbnail' );
-    }
->>>>>>> Stashed changes
-
 
     ?>
 
@@ -122,7 +204,7 @@
                             <p class="lead"><?php echo $post->post_excerpt; ?></p>
 
                             <br>
-                            <a href="<?php echo $url ?>" class="btn btn-transparent-white btn-lg">Read More</a>
+                            <a href="<?php echo $url ?>" class="btn btn-transparent-white btn-rounded btn-lg">Read More</a>
 
                         </div> <!-- /.col-inner -->
                     </div> <!-- /.col -->
@@ -131,7 +213,7 @@
                         <div class="col-inner">
 
                             <!-- Begin info box -->
-                            <div class="info-box-wrapper">
+                            <div class="info-box-wrapper text-white">
                                 <div class="row">
                                 <?php
                                     foreach ( $services as $service ){
@@ -159,61 +241,6 @@
 
 
                                 ?>
-                                    <!-- info box 1 -->
-                                    <!-- <div class="col col-sm-6 col-lg-6">
-                                        <div class="info-box">
-                                            <span class="info-box-icon"><i class="fa fa-users"></i></span>
-                                            <div class="info-box-heading">
-                                                <h3>Membership</h3>
-                                                <div class="divider"></div>
-                                            </div>
-                                            <div class="info-box-info">
-                                                <p>Bonnie Doon currently has reduced joining fees and annual subscriptions for prospective members under the age of 40.</p>
-                                            </div>
-                                        </div>
-                                    </div> -->
-
-                                    <!-- info box 2 -->
-                                    <!-- <div class="col col-sm-6 col-lg-6">
-                                        <div class="info-box">
-                                            <span class="info-box-icon"><i class="fa fa-heart-o"></i></span>
-                                            <div class="info-box-heading">
-                                                <h3>Weddings</h3>
-                                                <div class="divider"></div>
-                                            </div>
-                                            <div class="info-box-info">
-                                                <p>We know that when you have your wedding at Bonnie Doon Golf Club it will be the perfect fit for you. </p>
-                                            </div>
-                                        </div>
-                                    </div> -->
-
-                                    <!-- info box 3 -->
-                                    <!-- <div class="col col-sm-6 col-lg-6">
-                                        <div class="info-box">
-                                            <span class="info-box-icon"><i class="fa fa-flag-o"></i></span>
-                                            <div class="info-box-heading">
-                                                <h3>Corporate</h3>
-                                                <div class="divider"></div>
-                                            </div>
-                                            <div class="info-box-info">
-                                                <p>Corporate Memberships are available at Bonnie Doon Golf Club and includes the following benefits.</p>
-                                            </div>
-                                        </div>
-                                    </div> -->
-
-                                    <!-- info box 4 -->
-                                    <!-- <div class="col col-sm-6 col-lg-6">
-                                        <div class="info-box">
-                                            <span class="info-box-icon"><i class="fa fa-mortar-board"></i></span>
-                                            <div class="info-box-heading">
-                                                <h3>Course</h3>
-                                                <div class="divider"></div>
-                                            </div>
-                                            <div class="info-box-info">
-                                                <p>Bonnie Doon mimics the work of nature, with a mixture of irregular undulations, wispy roughs and rugged bunker.</p>
-                                            </div>
-                                        </div>
-                                    </div> -->
 
                                 </div> <!-- /.row -->
                             </div>
@@ -229,69 +256,20 @@
     </section>
 
 
-
-
-    <!-- Section 2 -->
-    <section id="section-2" class="team split-box no-padding">
-        <div class="container-fluid">
-            <div class="row">
-
-                <!-- Begin responsive columns of same height (more info: http://www.minimit.com/articles/solutions-tutorials/bootstrap-3-responsive-columns-of-same-height) -->
-                <div class="row-same-height">
-
-                    <div class="col-left col-lg-6 col-lg-height no-padding">
-                        <!-- http://54.152.228.144/wp-content/uploads/2016/06/who-we-are.png -->
-                        <img src="" alt="image" data-stellar-ratio="0.2">
-                    </div> <!-- /.col -->
-
-                    <div class="col-right col-lg-6 col-lg-height col-middle no-padding">
-                        <div class="col-inner">
-
-                            <!-- Begin Heading -->
-                            <div class="heading heading-xlg">
-                                <h1><span class="text-dark">Bonnie Doon</span></h1>
-                            </div>
-                            <!-- End Heading -->
-
-                            <p class="lead">Founded in 1897, Bonnie Doon is considered one of Sydney’s best golf courses.
-                                It is the city’s third-oldest golf club and one of the oldest in Australia.
-                                Located only 15 minutes from the city and five minutes from Sydney’s international airport,
-                                the golf course at Bonnie Doon enjoys championship and Group One status.</p>
-                        </div> <!-- /.col-inner -->
-                    </div> <!-- /.col -->
-                </div>
-                <!-- End responsive columns of same height -->
-
-            </div> <!-- /.row -->
-        </div> <!-- /.container -->
-    </section>
-
-
-
-
-
 <?php
 
-$args = array(
-    'posts_per_page' => 1,
-    'post_type' => 'testimonials',
-    'post_status' => 'publish'
-);
+    $args = array(
+        'posts_per_page' => 1,
+        'post_type' => 'testimonials',
+        'post_status' => 'publish'
+    );
 
-$post = get_posts( $args );
-
-if ( has_post_thumbnail($post[0]->ID) ) {
-    $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post[0]->ID ), 'single-post-thumbnail' );
-}
-
-$url = $post[0]->guid;
+    $post = get_posts( $args );
 
 ?>
 
-
-
-
-    <section id="section-3" class="welcome bg-dark text-white">
+    <!-- Section 4 -->
+    <section id="section-4" class="welcome bg-dark text-white">
         <div class="container-fluid">
             <div class="row">
 
@@ -311,7 +289,7 @@ $url = $post[0]->guid;
                     <div class="col-inner">
 
                         <p class="lead">
-                            <?php echo $post[0]->post_excerpt; ?>
+                            <?php echo $post->post_excerpt; ?>
                         </p>
 
                     </div>
@@ -323,67 +301,76 @@ $url = $post[0]->guid;
 
     <!-- Finish Section 1 -->
 
+<?php
 
+$page = get_page_by_path( 'functions' );
 
-    <!-- Begin intro section (Parallax) -->
-    <section id="section-4" class="intro-parallax full-height">
+if ($page) {
+    $pageId = $page->ID;
+} else {
+    return null;
+}
+
+if ( has_post_thumbnail ( $pageId ) ){
+    $image = wp_get_attachment_image_src( get_post_thumbnail_id( $pageId ), 'single-post-thumbnail' );
+}
+
+?>
+
+    <!-- Section 5 -->
+    <section id="section-5" class="intro-parallax full-height">
 
         <!-- Element background image (parallax) --> <!-- 'http://54.152.228.144/wp-content/uploads/2016/06/home-3.jpg' -->
-        <div class="full-cover bg-image" data-stellar-ratio="0.2" style="background-image: url();"></div>
+        <div class="full-cover bg-image" data-stellar-ratio="0.2" style="background-image: url(<?php echo $image[0] ?>);"></div>
 
         <!-- Element cover -->
         <!-- <div class="cover"></div> -->
 
         <!-- Intro caption -->
         <div class="intro-caption text-white" data-stellar-ratio="0.6">
-            <h1>Weddings and<br>
-                Functions<br>
-                Bonnie Doon<br>
-                Golf Club
-            </h1>
+            <h1><?php echo $page->post_content ?></h1>
         </div>
 
     </section>
     <!-- End intro section (Parallax) -->
 
-
 <?php
 
-/*
-    $args = array(
-        'posts_per_page' => 1,
-        'post_type' => 'services',
-        'post_status' => 'publish'
-    );
+// Get first SERVICE to show bg picture (latest roc_featured_post)
+$args = array(
+    'posts_per_page' => 1,
+    'post_type'      => 'tournaments',
+    'post_status'    => 'publish',
+    'orderby'        => 'date',
+    'order'          => 'DESC',
+    'meta_key'       => '_roc_featured_post',
+    'meta_value'     => 'checked'
+);
+$posts = get_posts( $args );
+$post = $posts[0];
 
-    $show_main_service = get_posts( $args );
+if ( has_post_thumbnail($post->ID) ) {
+    $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+}
 
+$url = $post->guid;
 
-
-    if( $show_main_service ) {
-        echo 'ID on the first post found ' . $show_main_service[0]->ID;
-    }
-
-
-    if (class_exists('MultiPostThumbnails')) {
-        MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'secondary-image');
-    } else {
-        echo 'POST type ' . get_post_type($show_main_service[0]->ID);
-    }
-*/
-
+// Get 4 services
+$args = array(
+    'posts_per_page' => 3,
+    'post_type'      => 'tournaments',
+    'post_status'    => 'publish',
+    'orderby'        => 'date',
+    'order'          => 'DESC',
+    'meta_key'       => '_roc_featured_post',
+    'meta_value'     => false ,
+);
+$services = get_posts( $args );
 
 ?>
 
-
-
-
-
-
-
-
-    <!-- Section 4 -->
-    <section id="section-4" class="tournaments split-box no-padding">
+    <!-- Section 6 -->
+    <section id="section-6" class="tournaments split-box no-padding">
         <div class="container-fluid">
             <div class="row">
 
@@ -395,14 +382,13 @@ $url = $post[0]->guid;
 
                             <!-- Begin Heading -->
                             <div class="heading heading-xlg">
-                                <h1><span class="text-dark">Our Tournaments</span></h1>
+                                <h1><span class="text-dark"><?php echo $post->post_title; ?></span></h1>
                             </div>
                             <!-- End Heading -->
 
-                            <p class="lead">Founded in 1897, Bonnie Doon is considered one of Sydney’s best golf courses.
-                                It is the city’s third-oldest golf club and one of the oldest in Australia.
-                                Located only 15 minutes from the city and five minutes from Sydney’s international airport,
-                                the golf course at Bonnie Doon enjoys championship and Group One status.</p>
+                            <p class="lead"><?php echo $post->post_excerpt; ?></p>
+                            <br>
+                            <a href="<?php echo $url ?>" class="btn btn-danger btn-rounded btn-lg">Read More</a>
                         </div> <!-- /.col-inner -->
                     </div> <!-- /.col -->
 
@@ -415,46 +401,26 @@ $url = $post[0]->guid;
                             <!-- Begin info box -->
                             <div class="info-box-wrapper">
                                 <div class="row">
-
+                                    <?php
+                                        foreach ( $services as $service ){
+                                        $service_meta = get_post_meta( $service->ID , '' , true);
+                                    ?>
                                     <!-- info box 1 -->
                                     <div class="col col-sm-12 col-lg-12">
                                         <div class="info-box">
                                             <span class="info-box-icon"><i class="fa fa-trophy"></i></span>
                                             <div class="info-box-heading">
-                                                <h3>Bonnie Doon Open Amateur</h3>
+                                                <h3><?php echo $service->post_title; ?></h3>
                                                 <div class="divider"></div>
                                             </div>
                                             <div class="info-box-info">
-                                                <p>Bonnie Doon currently has reduced joining fees and annual subscriptions for prospective members under the age of 40.</p>
+                                                <p><?php echo $service->post_excerpt; ?></p>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- info box 2 -->
-                                    <div class="col col-sm-12 col-lg-12">
-                                        <div class="info-box">
-                                            <span class="info-box-icon"><i class="fa fa-trophy"></i></span>
-                                            <div class="info-box-heading">
-                                                <h3>Bonnie Doon Senior Amateur</h3>
-                                                <div class="divider"></div>
-                                            </div>
-                                            <div class="info-box-info">
-                                                <p>Bonnie Doon currently has reduced joining fees and annual subscriptions for prospective members under the age of 40.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- info box 3 -->
-                                    <div class="col col-sm-12 col-lg-12">
-                                        <div class="info-box">
-                                            <span class="info-box-icon"><i class="fa fa-trophy"></i></span>
-                                            <div class="info-box-heading">
-                                                <h3>Bonnie Doon Junior Open</h3>
-                                                <div class="divider"></div>
-                                            </div>
-                                            <div class="info-box-info">
-                                                <p>Bonnie Doon currently has reduced joining fees and annual subscriptions for prospective members under the age of 40.</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                   <?php
+                                        }
+                                    ?>
 
                                 </div>
                             </div>
@@ -470,16 +436,72 @@ $url = $post[0]->guid;
             </div> <!-- /.container -->
     </section>
 
+<?php
 
-    
+$page = get_page_by_path( 'contact-us' );
 
-<?php //get_header(); ?>
+if ($page) {
+    $pageId = $page->ID;
+} else {
+    return null;
+}
 
-    <?php //get_template_part('loop'); ?>
+if ( has_post_thumbnail ( $pageId ) ){
+    $image = wp_get_attachment_image_src( get_post_thumbnail_id( $pageId ), 'single-post-thumbnail' );
+}
 
-    <?php //get_template_part('pagination'); ?>
+?>
+
+    <!-- Section 7 -->
+    <section id="section-7" class="page contact-section bg-dark text-white bg-image" style="background-image: url(<?php echo $image[0] ?>);">
+
+        <!-- Element cover -->
+        <div class="cover"></div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Begin responsive columns of same height (more info: http://www.minimit.com/articles/solutions-tutorials/bootstrap-3-responsive-columns-of-same-height) -->
+                <div class="row-same-height">
 
 
-<?php //get_sidebar(); ?>
+                    <div class="col-left col-lg-6 col-lg-height col-middle no-padding">
+                        <div class="col-inner">
+
+                            <!-- Begin Heading -->
+                            <div class="heading heading-xlg">
+                                <h1><span>Contact US</span></h1>
+                            </div>
+                            <!-- End Heading -->
+
+                            <div class="contact-info">
+                                <p><i class="fa fa-home"></i> 121 King Street, Melbourne Victoria 3000 Australia</p>
+                                <p><i class="fa fa-phone"></i> phone: +123 456 789 00</p>
+                                <p><i class="fa fa-envelope"></i> your.email@info.com</p>
+                            </div>
+
+                        </div> <!-- /.col-inner -->
+                    </div> <!-- /.col -->
+
+
+
+                    <div class="col-right col-md-6">
+                        <div class="col-inner">
+
+                            <!-- Socials icons (replace "http://link.com" widh your own link) -->
+                            <div class="social-icons">
+                                <a href="https://www.facebook.com/themetorium" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a href="https://twitter.com/Themetorium" target="_blank"><i class="fa fa-twitter"></i></a>
+                                <a href="https://plus.google.com/u/0/113335961768782000316/posts" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                <a href="https://www.linkedin.com/in/themetorium" target="_blank"><i class="fa fa-linkedin"></i></a>
+                            </div>
+
+                            <a href="mailto:your@email.com" target="_blank" class="btn btn-danger btn-rounded btn-lg">say hello <i class="fa fa-paper-plane-o"></i></a>
+
+                        </div> <!-- /.col-inner -->
+                    </div> <!-- /.col -->
+                </div>
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </section>
 
 <?php get_footer(); ?>

@@ -1359,9 +1359,11 @@ img.mfp-img {
 .contact-section {
 }
 .contact-section .cover {
-	background-color: rgba(0, 0, 0, 0.89);
+	background: rgba(7, 16, 54, 0.8);
 }
 .contact-section .col-inner {
+	padding: 30px 80px;
+	overflow: hidden;
 	position: relative;
 	z-index: 2;
 }
@@ -1381,6 +1383,7 @@ img.mfp-img {
 	background-color: #FFF;
 	margin: 5px 5px 5px 0;
 	text-align: center;
+	padding-top: 15px;
 	font-size: 28px;
 	color: #000;
 	box-shadow: inset 0px 0px rgba(7, 16, 54, 0.82);
@@ -1393,7 +1396,7 @@ img.mfp-img {
 }
 @media only screen and (min-width: 992px) {
 	.contact-section .col-left .col-inner {
-		border-right: 1px solid #333;
+		border-right: 1px solid #fff;
 	}
 }
 @media only screen and (max-width: 992px) {
@@ -1498,12 +1501,12 @@ img.mfp-img {
 
 .btn-warning {
 	color: #FFF;
-	background-color: rgba(5, 16, 54, .82);
+	background-color: rgba(6, 17, 54, .82);
 	box-shadow: inset 0px -3px rgba(0, 0, 0, 0.1);
 }
 .btn-warning:hover, .btn-warning:active, .btn-warning.active, .btn-warning:focus, .btn-warning.disabled, .btn-warning[disabled] {
 	color: #FFF;
-	background-color: rgba(5, 16, 54, .82);
+	background-color: rgba(6, 17, 54, .82);
 	box-shadow: inset 0px -65px rgba(0, 0, 0, 0.1);
 }
 

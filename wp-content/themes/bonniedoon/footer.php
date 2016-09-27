@@ -7,7 +7,7 @@
 			<div class="col-md-4">
 				<div class="copyright small">
 					<?php do_action( 'returnonclick_credits' ); ?>
-					<a href="<?php echo esc_url( __( 'http://www.returnonclick.com.au/', 'returnonclick' ) ); ?>" title="<?php esc_attr_e( 'Return On Click', 'returnonclick' ); ?>"><?php printf( __( 'Proudly powered by %s', 'returnonclick' ), 'Returnonclick' ); ?></a>
+					<a class="text-white" href="<?php echo esc_url( __( 'http://www.returnonclick.com.au/', 'returnonclick' ) ); ?>" title="<?php esc_attr_e( 'Return On Click', 'returnonclick' ); ?>"><?php printf( __( 'Proudly powered by %s', 'returnonclick' ), 'Returnonclick' ); ?></a>
 				</div>
 			</div>
 			<div class="col-md-4">
