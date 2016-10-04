@@ -255,52 +255,6 @@
         </div> <!-- /.container -->
     </section>
 
-
-<?php
-
-    $args = array(
-        'posts_per_page' => 1,
-        'post_type' => 'testimonials',
-        'post_status' => 'publish'
-    );
-
-    $post = get_posts( $args );
-
-?>
-
-    <!-- Section 4 -->
-    <section id="section-4" class="welcome bg-dark text-white">
-        <div class="container-fluid">
-            <div class="row">
-
-                <div class="col-left col-lg-6 col-lg-height col-middle no-padding">
-                    <div class="col-inner">
-
-                        <!-- Begin Heading -->
-                        <div class="heading heading-xlg">
-                            <h1><span class="text-white">Testimonials</span></h1>
-                        </div>
-                        <!-- End Heading -->
-
-                    </div> <!-- /.col-inner -->
-                </div> <!-- /.col -->
-
-                <div class="col-right col-md-6 col-lg-6 col-lg-height col-middle">
-                    <div class="col-inner">
-
-                        <p class="lead">
-                            <?php echo $post->post_excerpt; ?>
-                        </p>
-
-                    </div>
-                </div> <!-- /.col -->
-
-            </div> <!-- /.row -->
-        </div> <!-- /.container -->
-    </section>
-
-    <!-- Finish Section 1 -->
-
 <?php
 
 $page = get_page_by_path( 'functions' );
