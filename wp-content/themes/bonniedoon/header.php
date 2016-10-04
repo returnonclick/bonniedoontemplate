@@ -110,7 +110,7 @@
 
     <nav id="cd-top-nav">
         <ul>
-            <li><a href="#0"><i class="fa fa-user"></i>Logout</a></li>
+            <li><i class="fa fa-user"></i><?php wp_loginout(); ?></li>
             <li><a href="#0"><i class="fa fa-phone"></i>02 9349 0121</a></li>
         </ul>
     </nav>
