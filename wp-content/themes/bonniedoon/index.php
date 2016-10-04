@@ -255,7 +255,6 @@
         </div> <!-- /.container -->
     </section>
 
-
 <?php
 
 $page = get_page_by_path( 'functions' );
