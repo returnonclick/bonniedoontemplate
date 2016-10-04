@@ -37,30 +37,27 @@ if ( has_post_thumbnail ( $pageId ) ){
             <div class="container-fluid">
                 <div class="row">
 
-                    <!-- Begin responsive columns of same height (more info: http://www.minimit.com/articles/solutions-tutorials/bootstrap-3-responsive-columns-of-same-height) -->
-                    <div class="row-same-height">
+                    <div class="col-left col-lg-6 col-lg-height no-padding">
+                        <!-- http://54.152.228.144/wp-content/uploads/2016/06/who-we-are.png -->
+                        <div class="col-inner">
 
-                        <div class="col-left col-lg-6 col-lg-height no-padding">
-                            <!-- http://54.152.228.144/wp-content/uploads/2016/06/who-we-are.png -->
-                            <div class="col-inner">
+                            <!-- Begin Heading -->
+                            <div class="heading heading-xlg">
+                                <h1><span class="text-dark"><?php the_title() ?></span></h1>
+                            </div>
+                            <!-- End Heading -->
+                       </div>
+                    </div> <!-- /.col -->
+                </div>
+                <div class="row">
 
-                                <!-- Begin Heading -->
-                                <div class="heading heading-xlg">
-                                    <h1><span class="text-dark"><?php the_title() ?></span></h1>
-                                </div>
-                                <!-- End Heading -->
-                           </div>
-                        </div> <!-- /.col -->
-
-                        <div class="col-right col-lg-6 col-lg-height col-middle no-padding">
-                            <div class="col-inner">
-                                <p class="lead"><?php the_content(); ?></p>
-                                <p>Published on <?php the_time(__('jS F Y')) ?> in <?php the_category(', ') ?> | <?php edit_post_link('Edit', '', ' | '); ?>
-                                </p>
-                            </div> <!-- /.col-inner -->
-                        </div> <!-- /.col -->
-                    </div>
-                    <!-- End responsive columns of same height -->
+                    <div class="col-right col-lg-6 col-lg-height col-middle no-padding">
+                        <div class="col-inner ">
+                            <p class="lead"><?php the_content(); ?></p>
+                            <!-- <p>Published on <?php the_time(__('jS F Y')) ?> in <?php the_category(', ') ?> | <?php edit_post_link('Edit', '', ' | '); ?> -->
+                            </p>
+                        </div> <!-- /.col-inner -->
+                    </div> <!-- /.col -->
 
                 </div> <!-- /.row -->
             </div> <!-- /.container -->
