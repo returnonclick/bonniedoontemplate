@@ -72,7 +72,6 @@ if ( has_post_thumbnail ( $pageId ) ){
 <?php endif; ?>
 
 </div>
-<?php get_sidebar(); ?>
 
 </div></div>
 <?php get_footer(); ?>

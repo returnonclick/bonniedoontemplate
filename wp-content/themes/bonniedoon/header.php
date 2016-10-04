@@ -111,7 +111,7 @@
     <nav id="cd-top-nav">
         <ul>
             <li><i class="fa fa-user"></i><?php wp_loginout(); ?></li>
-            <li><a href="#0"><i class="fa fa-phone"></i>02 9349 0121</a></li>
+            <li><a href="tel:0293490121"><i class="fa fa-phone"></i>02 9349 0121</a></li>
         </ul>
     </nav>
 
