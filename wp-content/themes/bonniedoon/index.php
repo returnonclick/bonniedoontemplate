@@ -258,51 +258,6 @@
 
 <?php
 
-    $args = array(
-        'posts_per_page' => 1,
-        'post_type' => 'testimonials',
-        'post_status' => 'publish'
-    );
-
-    $post = get_posts( $args );
-
-?>
-
-    <!-- Section 4 -->
-    <section id="section-4" class="welcome bg-dark text-white">
-        <div class="container-fluid">
-            <div class="row">
-
-                <div class="col-left col-lg-6 col-lg-height col-middle no-padding">
-                    <div class="col-inner">
-
-                        <!-- Begin Heading -->
-                        <div class="heading heading-xlg">
-                            <h1><span class="text-white">Testimonials</span></h1>
-                        </div>
-                        <!-- End Heading -->
-
-                    </div> <!-- /.col-inner -->
-                </div> <!-- /.col -->
-
-                <div class="col-right col-md-6 col-lg-6 col-lg-height col-middle">
-                    <div class="col-inner">
-
-                        <p class="lead">
-                            <?php echo $post->post_excerpt; ?>
-                        </p>
-
-                    </div>
-                </div> <!-- /.col -->
-
-            </div> <!-- /.row -->
-        </div> <!-- /.container -->
-    </section>
-
-    <!-- Finish Section 1 -->
-
-<?php
-
 $page = get_page_by_path( 'functions' );
 
 if ($page) {
@@ -318,13 +273,13 @@ if ( has_post_thumbnail ( $pageId ) ){
 ?>
 
     <!-- Section 5 -->
-    <section id="section-5" class="intro-parallax full-height">
+    <section id="section-5" class="intro-parallax full-height heading-right">
 
         <!-- Element background image (parallax) --> <!-- 'http://54.152.228.144/wp-content/uploads/2016/06/home-3.jpg' -->
         <div class="full-cover bg-image" data-stellar-ratio="0.2" style="background-image: url(<?php echo $image[0] ?>);"></div>
 
         <!-- Element cover -->
-        <!-- <div class="cover"></div> -->
+        <div class="cover"></div>
 
         <!-- Intro caption -->
         <div class="intro-caption text-white" data-stellar-ratio="0.6">
@@ -473,8 +428,6 @@ if ( has_post_thumbnail ( $pageId ) ){
                             </div>
                             <!-- End Heading -->
 
-                            <?php echo $page->post_content ?>
-
                         </div> <!-- /.col-inner -->
                     </div> <!-- /.col -->
 
@@ -483,16 +436,15 @@ if ( has_post_thumbnail ( $pageId ) ){
                     <div class="col-right col-md-6">
                         <div class="col-inner">
 
+                            <?php echo $page->post_content ?>
+
                             <!-- Socials icons (replace "http://link.com" widh your own link) -->
                             <div class="social-icons">
-                                <a href="https://www.facebook.com/themetorium" target="_blank"><i class="fa fa-facebook"></i></a>
-                                <a href="https://twitter.com/Themetorium" target="_blank"><i class="fa fa-twitter"></i></a>
-                                <a href="https://plus.google.com/u/0/113335961768782000316/posts" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                <a href="https://www.linkedin.com/in/themetorium" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                <a href="https://www.facebook.com/bonniedoongolfclub/" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a href="https://twitter.com/bonniedoongc?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank"><i class="fa fa-twitter"></i></a>
+                                <a href="https://plus.google.com/110878698359176171947" target="_blank"><i class="fa fa-google-plus"></i></a>
                             </div>
-
-                            <a href="mailto:your@email.com" target="_blank" class="btn btn-danger btn-rounded btn-lg">say hello <i class="fa fa-paper-plane-o"></i></a>
-
+                            
                         </div> <!-- /.col-inner -->
                     </div> <!-- /.col -->
                 </div>

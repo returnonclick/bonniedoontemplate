@@ -35,6 +35,12 @@ Note: IE9 doesn't support transitions and animations
 /* ------------------------------------------------------------------------- *
  *  Base Styles
 /* ------------------------------------------------------------------------- */
+html, html a {
+	-webkit-font-smoothing: antialiased;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+	-moz-osx-font-smoothing: grayscale;
+}
+
 html, body {
 	height: 100% !important;
 	padding: 0;
@@ -323,6 +329,7 @@ section .container {
 #section-5 {
 }
 #section-6 {
+	padding: 100px 0 !important;
 }
 #section-7 {
 }
@@ -334,6 +341,22 @@ section .container {
 }
 #section-11 {
 }
+
+/* Intro parallax cover */
+#section-5 .cover {
+	background: -moz-linear-gradient(top,  rgba(153,153,153,0) 0%, rgba(0,0,0,.5) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(153,153,153,0) 0%,rgba(0,0,0,.5) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(153,153,153,0) 0%,rgba(0,0,0,.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00999999', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+
+}
+#section-5 .intro-caption {
+	position: absolute;
+	bottom: 80px;
+	right: 80px;
+	z-index: 3;
+}
+
 
 
 /* ------------------------------------ *
@@ -1396,7 +1419,7 @@ img.mfp-img {
 }
 @media only screen and (min-width: 992px) {
 	.contact-section .col-left .col-inner {
-		border-right: 1px solid #fff;
+		/* border-right: 1px solid #fff; */
 	}
 }
 @media only screen and (max-width: 992px) {
