@@ -80,7 +80,7 @@
                     <div class="col-inner">
 
                         <p class="lead">
-                            <?php echo $page->post_content ?>
+                            <?php echo $page->post_content;  ?>
                         </p>
 
                     </div>
@@ -129,7 +129,7 @@
                             </div>
                             <!-- End Heading -->
 
-                            <p class="lead"><?php echo $page->post_content ?></p>
+                            <p class="lead"><?php echo substr($page->post_content,0,200).'...'; ?></p>
                             <br>
                             <a href="<?php echo $page->guid ?>" class="btn btn-danger btn-rounded btn-lg">Read More</a>
                         </div> <!-- /.col-inner -->
@@ -229,7 +229,7 @@
                                                         <div class="divider"></div>
                                                     </div>
                                                     <div class="info-box-info">
-                                                        <p><?php echo $service->post_excerpt; ?></p>
+                                                        <p><?php echo substr($service->post_excerpt,0,100).'...'; ?></p>
                                                     </div>
                                                 </div>
                                             </a>
