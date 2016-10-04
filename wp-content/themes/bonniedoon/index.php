@@ -469,15 +469,11 @@ if ( has_post_thumbnail ( $pageId ) ){
 
                             <!-- Begin Heading -->
                             <div class="heading heading-xlg">
-                                <h1><span>Contact US</span></h1>
+                                <h1><span><?php echo $page->post_title ?></span></h1>
                             </div>
                             <!-- End Heading -->
 
-                            <div class="contact-info">
-                                <p><i class="fa fa-home"></i> 121 King Street, Melbourne Victoria 3000 Australia</p>
-                                <p><i class="fa fa-phone"></i> phone: +123 456 789 00</p>
-                                <p><i class="fa fa-envelope"></i> your.email@info.com</p>
-                            </div>
+                            <?php echo $page->post_content ?>
 
                         </div> <!-- /.col-inner -->
                     </div> <!-- /.col -->
