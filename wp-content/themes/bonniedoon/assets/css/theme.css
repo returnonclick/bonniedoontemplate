@@ -352,7 +352,7 @@ section .container {
 }
 #section-5 .intro-caption {
 	position: absolute;
-	bottom: 80px;
+	bottom: 180px;
 	right: 80px;
 	z-index: 3;
 }
@@ -1385,7 +1385,6 @@ img.mfp-img {
 	background: rgba(7, 16, 54, 0.8);
 }
 .contact-section .col-inner {
-	padding: 30px 80px;
 	overflow: hidden;
 	position: relative;
 	z-index: 2;
@@ -1396,7 +1395,7 @@ img.mfp-img {
 	margin-right: 5px;
 }
 .contact-section .social-icons {
-	margin-bottom: 50px;
+	margin-top: 50px;
 }
 .contact-section .social-icons a {
 	display: inline-block;

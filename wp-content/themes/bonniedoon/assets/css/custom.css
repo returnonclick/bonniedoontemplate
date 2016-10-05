@@ -196,3 +196,21 @@ ul.nav-menu li a {
         font-size: 50px;
     }
 }
+
+
+/* ------------------------------------ *
+ *  Welcome section
+/* ------------------------------------ */
+.contact-section {
+    padding: 150px 0 !important;
+}
+
+.contact-section .col-left .col-inner {
+    padding-left: 0px;
+}
+
+@media only screen and (min-width: 1200px) {
+    .contact-section .col-left .col-inner {
+        padding-left: 0px;
+    }
+}

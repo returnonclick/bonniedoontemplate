@@ -63,28 +63,31 @@
     <section id="section-1" class="welcome bg-dark text-white">
         <div class="container">
             <div class="row">
+                <div class="row-same-height">
 
-                <div class="col-left col-md-6">
-                    <div class="col-inner">
+                    <div class="col-left col-md-6 col-lg-height col-middle">
+                        <div class="col-inner">
 
-                        <!-- Begin Heading -->
-                        <div class="heading heading-xlg">
-                            <h1><span><?php echo $page->post_title ?></span></h1>
+                            <!-- Begin Heading -->
+                            <div class="heading heading-xlg">
+                                <h1><span><?php echo $page->post_title ?></span></h1>
+                            </div>
+                            <!-- End Heading -->
+
+                        </div> <!-- /.col-inner -->
+                    </div> <!-- /.col -->
+
+                    <div class="col-right">
+                        <div class="col-inner">
+
+                            <p class="lead">
+                                <?php echo $page->post_content;  ?>
+                            </p>
+
                         </div>
-                        <!-- End Heading -->
+                    </div> <!-- /.col -->
 
-                    </div> <!-- /.col-inner -->
-                </div> <!-- /.col -->
-
-                <div class="col-right col-md-6">
-                    <div class="col-inner">
-
-                        <p class="lead">
-                            <?php echo $page->post_content;  ?>
-                        </p>
-
-                    </div>
-                </div> <!-- /.col -->
+                </div>
 
             </div> <!-- /.row -->
         </div> <!-- /.container -->
@@ -115,7 +118,7 @@
                 <!-- Begin responsive columns of same height (more info: http://www.minimit.com/articles/solutions-tutorials/bootstrap-3-responsive-columns-of-same-height) -->
                 <div class="row-same-height">
 
-                    <div class="col-left col-lg-6 col-lg-height no-padding">
+                    <div class="col-right col-lg-6 col-lg-height col-middle no-padding">
                         <!-- http://54.152.228.144/wp-content/uploads/2016/06/who-we-are.png -->
                         <img src="<?php echo $image[0] ?>" alt="image" data-stellar-ratio="0.2">
                     </div> <!-- /.col -->
@@ -412,13 +415,12 @@ if ( has_post_thumbnail ( $pageId ) ){
         <!-- Element cover -->
         <div class="cover"></div>
 
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <!-- Begin responsive columns of same height (more info: http://www.minimit.com/articles/solutions-tutorials/bootstrap-3-responsive-columns-of-same-height) -->
                 <div class="row-same-height">
 
-
-                    <div class="col-left col-lg-6 col-lg-height col-middle no-padding">
+                    <div class="col-left col-md-6 col-lg-height col-middle">
                         <div class="col-inner">
 
                             <!-- Begin Heading -->
@@ -430,9 +432,7 @@ if ( has_post_thumbnail ( $pageId ) ){
                         </div> <!-- /.col-inner -->
                     </div> <!-- /.col -->
 
-
-
-                    <div class="col-right col-md-6">
+                    <div class="col-right">
                         <div class="col-inner">
 
                             <?php echo $page->post_content ?>
